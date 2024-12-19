@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juguetes y Peluches - EcoMarket</title>
+    <link rel="stylesheet" href="estilos.css"> <!-- Vincula el archivo CSS -->
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <h1>EcoMarket</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="productos-de-belleza.html">Belleza</a></li>
+                <li><a href="productos-accion.html">Juguetes</a></li>
+                <li><a href="productos-sostenibles.html">Peluches</a></li>
+                <li><a href="contatos.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de productos de juguetes y peluches -->
+    <section class="product-list">
+        <section class="category-title">
+            <h2>Juguetes</h2>
+        </section>
+
+        <!-- Tarjetas de productos -->
+        <div class="product-cards">
+            <!-- Producto 1 -->
+            <div class="product-card">
+                <img src="POKEMON-SYLVEON-FIGURKA-8-CM-BATTLE-Bohater-Pokemon.jpg" alt="Figura de Sylveon">
+                <h3>Figura de Sylveon</h3>
+                <p>$15</p>
+                <button class="add-to-cart" onclick="addToCart('Figura de Sylveon', 15, 'POKEMON-SYLVEON-FIGURKA-8-CM-BATTLE-Bohater-Pokemon.jpg')">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product-card">
+                <img src="Figuradeaccion.jpeg" alt="Figura de acción Pikachu">
+                <h3>Figura de acción Pikachu</h3>
+                <p>$25</p>
+                <button class="add-to-cart" onclick="addToCart('Figura de acción Pikachu', 25, 'Figuradeaccion.jpeg')">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product-card">
+                <img src="juguete.jpg" alt="Figura Funko">
+                <h3>Figura Funko</h3>
+                <p>$18</p>
+                <button class="add-to-cart" onclick="addToCart('Figura Funko', 18, 'juguete.jpg')">Añadir al carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 EcoMarket | Todos los derechos reservados</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        // Función para agregar al carrito
+        function addToCart(name, price, image) {
+            const product = { name, price, image, quantity: 1 };
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingProduct = cart.find(item => item.name === name);
+            
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    </script>
+</body>
+</html>

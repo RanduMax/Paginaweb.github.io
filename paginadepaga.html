@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar - EcoMarket</title>
+    <link rel="stylesheet" href="pago.css"> <!-- Vincula el archivo CSS -->
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <h1>EcoMarket</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="contatos.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de pago -->
+    <section class="payment-container">
+        <h2>Detalles de Pago</h2>
+
+        <!-- Resumen del carrito -->
+        <div class="cart-summary">
+            <h3>Resumen de la Compra</h3>
+            <div id="cart-summary-items"></div>
+            <p>Total: <strong id="total-price">$0</strong></p>
+        </div>
+
+        <!-- Formulario de pago -->
+        <form id="payment-form" action="confirmation.html" method="POST">
+            <h3>Detalles de la Tarjeta</h3>
+
+            <label for="card-number">Número de tarjeta</label>
+            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9101 1121" required>
+
+            <label for="card-holder">Nombre del titular</label>
+            <input type="text" id="card-holder" name="card-holder" placeholder="Nombre del titular" required>
+
+            <label for="expiration">Fecha de expiración</label>
+            <input type="month" id="expiration" name="expiration" required>
+
+            <label for="cvv">Código de seguridad (CVV)</label>
+            <input type="text" id="cvv" name="cvv" placeholder="123" required>
+
+            <button type="submit">Confirmar Pago</button>
+        </form>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 EcoMarket | Todos los derechos reservados</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        // Mostrar los productos del carrito y el total
+        function updatePaymentPage() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartSummaryItems = document.getElementById("cart-summary-items");
+            const totalPriceElement = document.getElementById("total-price");
+
+            // Limpiar el contenedor de productos
+            cartSummaryItems.innerHTML = '';
+
+            let totalPrice = 0;
+            cart.forEach(product => {
+                totalPrice += product.price * product.quantity;
+
+                // Crear el HTML para cada producto en el carrito
+                const productHTML = `
+                    <div class="cart-item">
+                        <h3>${product.name}</h3>
+                        <p>Cantidad: ${product.quantity}</p>
+                        <p>Precio: $${product.price}</p>
+                    </div>
+                `;
+                cartSummaryItems.innerHTML += productHTML;
+            });
+
+            // Mostrar el total
+            totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+        }
+
+        // Al cargar la página, mostrar los productos del carrito
+        document.addEventListener('DOMContentLoaded', updatePaymentPage);
+    </script>
+</body>
+</html>

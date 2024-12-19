@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peluche Grande Sylveon</title>
+    <link rel="stylesheet" href="sylveon1.0.css"> <!-- Asegúrate de tener este archivo CSS -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>EcoMarket</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="productos-de-belleza.html">Belleza</a></li>
+                <li><a href="productos-accion.html">Juguetes</a></li>
+                <li><a href="productos-sostenibles.html">Peluches</a></li>
+                <li><a href="contatos.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <style>
+    header {
+        background-color: #2d3a3f;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    header nav ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    header nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+    
+    header nav ul li a {
+        color: white;
+        text-decoration: none;
+    }
+    </style>
+
+    <!-- Contenedor del Producto -->
+    <section class="product-container">
+        <div class="product-images">
+            <img src="700-pokemon-fit.jpeg" alt="Peluche Sylveon" class="main-image">
+            <div class="thumbnail-images">
+                <img src="700-pokemon-fit.jpeg" alt="Peluche Sylveon" class="thumbnail">
+                <img src="700-pokemon-fit.jpeg" alt="Imagen alternativa 1" class="thumbnail">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h1>Peluche de edicion 2020</h1>
+            <h2>$18</h2>
+            <p class="description">Este peluche grande de Sylveon es de la última edición, con un diseño único que hará las delicias de los fanáticos de Pokémon. Hecho con materiales de alta calidad, es perfecto para coleccionistas o como regalo especial.</p>
+
+            <!-- Opciones de tamaño/color (opcional, puedes añadir más) -->
+            <div class="product-options">
+                <label for="color">Color:</label>
+                <select id="color">
+                    <option value="Original">Original</option>
+                    <option value="Shiny">Shiny</option>
+                </select>
+
+                <label for="size">Tamaño:</label>
+                <select id="size">
+                    <option value="pequeño">Pequeño</option>
+                    <option value="mediano">Mediano</option>
+                    <option value="grande" selected>Grande</option>
+                </select>
+            </div>
+
+            <!-- Valoraciones -->
+            <div class="ratings">
+                <span class="star-rating">
+                    &#9733;&#9733;&#9733;&#9733;&#9733; (5.0)
+                </span>
+                <span class="num-reviews">(10 valoraciones)</span>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="product-actions">
+                <button class="add-to-cart" onclick="addToCart('peluche-edicion-2020', 18, '700-pokemon-fit.jpeg')">Añadir al carrito</button>
+                <button class="buy-now">Comprar ahora</button>
+            </div>
+
+            <!-- Enlace a la página del producto -->
+            <a href="index.html" class="cta-btn">Ver más detalles</a>
+        </div>
+    </section>
+
+    <script>
+        // Función para añadir productos al carrito utilizando localStorage
+        function addToCart(name, price, image) {
+            const product = { name, price, image, quantity: 1 };
+            
+            // Obtener el carrito del localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Verificar si el producto ya está en el carrito
+            const existingProduct = cart.find(item => item.name === name);
+
+            if (existingProduct) {
+                // Si el producto ya existe, incrementamos la cantidad
+                existingProduct.quantity += 1;
+            } else {
+                // Si el producto no existe, lo añadimos al carrito
+                cart.push(product);
+            }
+
+            // Guardar el carrito actualizado en localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Alerta para confirmar que el producto fue añadido
+            alert(`${name} ha sido añadido al carrito.`);
+        }
+    </script>
+</body>
+</html>

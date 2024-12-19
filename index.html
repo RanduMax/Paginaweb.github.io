@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoMarket</title>
+  <link rel="stylesheet" href="styless.css">
+  <style>
+    /* Estilos para el encabezado */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2d3a3f;
+      color: white;
+      padding: 20px;
+    }
+
+    header .logo h1 {
+      font-size: 2em;
+    }
+
+    header nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    header nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Estilos para el buscador */
+    .search-cart {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-cart input {
+      padding: 10px;
+      font-size: 16px;
+      width: 200px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+    }
+
+    .search-cart button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .search-cart button:hover {
+      background-color: #45a049;
+    }
+
+    /* Estilo de los botones CTA */
+    .banner {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.banner .cta-btn {
+  display: inline-block;
+  border: none;
+  background: none;
+}
+
+.banner .banner-img {
+  width: 100%; /* Ajusta la imagen al ancho del contenedor */
+  height: auto; /* Mantiene las proporciones de la imagen */
+  border: none; /* Elimina cualquier borde alrededor de la imagen */
+  display: block; /* Elimina cualquier espacio debajo de la imagen */
+}
+
+    .cta-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #a0458c;
+    }
+
+    /* Estilos de los productos */
+    .product-carousel {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      margin: 10px;
+      width: 200px;
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .product-card h3 {
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <div class="logo">
+      <h1>EcoMarket</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#categories">Categorías</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contatos.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="search-cart">
+      <input type="text" id="searchInput" placeholder="Buscar productos..." onkeyup="searchProducts()">
+      <button type="submit">Buscar</button>
+      <div class="cart"></div>
+    </div>
+  </header>
+
+<!-- Banner Principal -->
+<section class="banner">
+  <h2>Explora productos ecológicos para un futuro sostenible</h2>
+  <a href="#productos" class="cta-btn">
+    <img src="Pokemones.jfif" alt="banner" class="banner-img">
+  </a>
+</section>
+
+<!-- Categorías -->
+<section id="categories" class="categories">
+  <h2>Categorías</h2>
+  <div class="category-cards">
+    <div class="category-card">
+      <a href="productos-accion.html">
+        <button class="cta-btn">Juguetes de acción</button>
+      </a>
+    </div>
+    <div class="category-card">
+      <a href="productos-sostenibles.html">
+        <button class="cta-btn">Peluche sostenible</button>
+      </a>
+    </div>
+    <div class="category-card">
+      <a href="productos-de-belleza.html">
+        <button class="cta-btn">Productos de Belleza</button>
+      </a>
+    </div>
+  </div>
+</section>
+
+  <!-- Productos Destacados -->
+  <section id="productos" class="featured-products">
+    <h2>Productos Destacados</h2>
+    <div class="product-carousel" id="productList">
+      <div class="product-card" data-name="Peluche grande">
+        <img src="Grande_peluche_Pokemon_Sylveon.jpeg" alt="Producto 1">
+        <h3>Peluche grande</h3>
+        <p>$28</p>
+        <a href="FiguraDeAccion.html">Ver más</a>
+      </div>
+      <div class="product-card" data-name="Figura de acción">
+        <img src="POKEMON-SYLVEON-FIGURKA-8-CM-BATTLE-Bohater-Pokemon.jpg" alt="Producto 2">
+        <h3>Figura de acción</h3>
+        <p>$15</p>
+        <a href="peluche.html">Ver más</a>
+      </div>
+      <div class="product-card" data-name="Figura Funko">
+        <img src="juguete.jpg" alt="Producto 3">
+        <h3>Figura Funko</h3>
+        <p>$18</p>
+        <a href="figura-funko.html">Ver más</a>
+      </div>
+      <div class="product-card" data-name="Peluche edición 2020">
+        <img src="700-pokemon-fit.jpeg" alt="Producto 4">
+        <h3>Peluche edición 2020</h3>
+        <p>$18</p>
+        <a href="peluche-edicion-2020.html">Ver más</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="testimonials">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <div class="testimonial">
+      <img src="presents260221.jpg" alt="Cliente 1">
+      <p>"Productos increíbles, de gran calidad y muy ecológicos. ¡Los amo!" - Mika Moto</p>
+    </div>
+    <div class="testimonial">
+      <img src="presents180821.jpg" alt="Cliente 2">
+      <p>"Me encanta el compromiso con el medio ambiente. ¡Seguiré comprando!" - Juan M.</p>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <section id="Contacto" class="agradecimiento">
+      <p>&copy; 2024 EcoMarket | Todos los derechos reservados</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/sonicexe666616/?__n=K&_rdr">Facebook</a>
+        <a href="https://www.youtube.com/channel/UCisHf0mPluG_ITdpVT7B-og?app=desktop">Youtube</a>
+        <a href="https://x.com/i/flow/login?redirect_after_login=%2Fsylveon_piola">Twitter</a>
+      </div>
+    </section>
+  </footer>
+
+  <script>
+    function searchProducts() {
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const productCards = document.querySelectorAll('.product-card');
+
+      productCards.forEach(card => {
+        const productName = card.getAttribute('data-name').toLowerCase();
+        if (productName.includes(searchInput)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
